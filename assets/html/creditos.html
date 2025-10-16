@@ -1,147 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CREDISYSTEM</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solicitud de Nuevo Crédito</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style/animaciones.css">
   <link rel="stylesheet" href="/assets/style/style.css">
+  <style>
+    body {
+      background: #f8f9fa;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0d6efd, #6610f2);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .result-box {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 
 <header class="height p-2">
-  <nav class="navbar sticky-top navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand text-white" href="/index.html">CREDISYSTEM</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: end;">
-        <ul class="navbar-nav text-white ">
-          <li class="nav-item ps-3">
-            <a class="nav-link" aria-current="page" href="/index.html">Home</a>
-          </li>
-          <li class="nav-item ps-3 text-white">
-            <a class="nav-link" href="/assets/html/cuotas.html">Mis creditos</a>
-          </li>
-          <li class="nav-item ps-3 text-white">
-            <a class="nav-link " href="/assets/html/contacto.html">Contacto</a>
-          </li>
-          <li class="nav-item ps-3 pe-2 pe-3 text-white">
-            <a class="nav-link  " href="https://maps.app.goo.gl/HA2VecZog98M5s5m7" target="_blank">Sucursales</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
+    <nav class="navbar sticky-top navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#sobre-mi">CREDISYSTEM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<body>
-  <main>
-    <section id="credito">
-      <div class="container mt-5">
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <h1 class="text-center mb-4">Simula tu crédito</h1>
-            <form id="loanCalculatorForm" onsubmit="calcularCuotas(event)">
-              <div class="mb-3">
-                <label for="monto" class="form-label">Monto del Crédito:</label>
-                <input type="number" class="form-control" id="monto" placeholder="$" required>
-              </div>
-              <button type="submit" class="btn btn-primary w-100">Calcular Cuotas</button>
-            </form>
-
-            <!-- Resultados -->
-            <div id="resultados" class="mt-4 d-none">
-              <h4 class="text-center mb-3">Seleccioná tu cuota:</h4>
-              <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  3 cuotas fijas de: $<span id="cuota3"></span>
-                  <button class="btn btn-sm btn-success" onclick="abrirModal('3 cuotas', document.getElementById('cuota3').innerText)">Elegir</button>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  6 cuotas fijas de: $<span id="cuota6"></span>
-                  <button class="btn btn-sm btn-success" onclick="abrirModal('6 cuotas', document.getElementById('cuota6').innerText)">Elegir</button>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  9 cuotas fijas de: $<span id="cuota9"></span>
-                  <button class="btn btn-sm btn-success" onclick="abrirModal('9 cuotas', document.getElementById('cuota9').innerText)">Elegir</button>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  12 cuotas fijas de: $<span id="cuota12"></span>
-                  <button class="btn btn-sm btn-success" onclick="abrirModal('12 cuotas', document.getElementById('cuota12').innerText)">Elegir</button>
-                </li>
-              </ul>
+            <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: end;">
+                <ul class="navbar-nav text-white ">
+                    <li class="nav-item ps-3">
+                        <a class="nav-link" aria-current="page" href="/index.html">Home</a active>
+                    </li>
+                    <li class="nav-item ps-3 text-white">
+                        <a class="nav-link" href="/assets/html/creditos.html">Nuevo Credito</a>
+                    </li>
+                    <li class="nav-item ps-3 text-white">
+                        <a class="nav-link " href="/assets/html/cuotas.html">Mis Creditos</a>
+                    </li>
+                    <li class="nav-item ps-3 text-white">
+                        <a class="nav-link " href="/assets/html/contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item ps-3 pe-2 pe-3 text-white">
+                        <a class="nav-link  " href="https://maps.app.goo.gl/HA2VecZog98M5s5m7"
+                            target="_blank">Sucursales</a>
+                    </li>
+                    <div>
+                        <a href="/assets/html/login.html"><button type="button"
+                                class="btn btn-outline-primary">Iniciar</button></a>
+                        <a href="/assets/html/registro.html"><button type="button"
+                                class="btn btn-outline-primary">Registrarse</button></a>
+                    </div>
+                </ul>
             </div>
-          </div>
+        </div>
+    </nav>
+</header>
+<body>
+
+  
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-6 fw-bold">¡Bienvenido, <span id="usuario">Juan Pérez</span>!</h1>
+      <p class="lead">Tu sesión está activa. Podés solicitar un crédito en pocos pasos.</p>
+      <h3 class="mt-4">💰 Saldo disponible para retirar: <span id="saldoDisponible">$100,000</span></h3>
+      <a href="#formulario" class="btn btn-light btn-lg mt-3">Solicitar Crédito</a>
+    </div>
+  </section>
+
+
+  <section id="formulario" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 form-container">
+          <h4 class="mb-4 text-center text-primary">Completá tu solicitud de crédito</h4>
+          
+          <form id="creditoForm">
+            <div class="mb-3">
+              <label for="vencimiento" class="form-label">Primer Vencimiento</label>
+              <input type="date" id="vencimiento" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="monto" class="form-label">Monto solicitado ($)</label>
+              <input type="number" id="monto" class="form-control" placeholder="Ej. 50000" required min="1000">
+              <small class="text-muted">No podés solicitar más de tu saldo disponible.</small>
+            </div>
+
+            <div class="mb-3">
+              <label for="plazo" class="form-label">Plazo (en meses)</label>
+              <select id="plazo" class="form-select" required>
+                <option value="">Seleccionar</option>
+                <option value="6">6 meses</option>
+                <option value="12">12 meses</option>
+                <option value="24">24 meses</option>
+                <option value="36">36 meses</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="ingresos" class="form-label">Comprobante de ingresos</label>
+              <input type="file" id="ingresos" class="form-control" required>
+              <small class="text-muted">Subí tu recibo de sueldo o comprobante de ingresos.</small>
+            </div>
+
+            <div class="mb-3" id="cuotaInfo" style="display:none;">
+              <div class="alert alert-info">
+                Valor estimado de cada cuota: <strong id="valorCuota"></strong>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Enviar Solicitud</button>
+          </form>
+
+          <!-- Resultado -->
+          <div id="resultado" class="alert result-box" role="alert"></div>
         </div>
       </div>
-    </section>
-  </main>
-</body>
-
-<footer>
-  <div>
-    <h3>CREDISYSTEM</h3>
-  </div>
-</footer>
-
-<!-- Modal -->
-<div class="modal fade" id="cuotaModal" tabindex="-1" aria-labelledby="cuotaModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title" id="cuotaModalLabel">Confirmar selección</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <p>Has elegido <strong id="cuotaSeleccionada"></strong> de $<strong id="valorSeleccionado"></strong>.</p>
-        <p>¿Querés continuar con el trámite?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success" onclick="continuarTramite()">Continuar</button>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<script src="/assets/js/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous"></script>
+  <footer class="text-center py-3 bg-light">
+    <small>© 2025 Sistema de Créditos - Todos los derechos reservados</small>
+  </footer>
 
-<script>
-  function calcularCuotas(event) {
-    event.preventDefault();
 
-    const monto = parseFloat(document.getElementById("monto").value);
-    if (isNaN(monto) || monto <= 0) return;
 
-    document.getElementById("cuota3").innerText = (monto / 3).toFixed(2);
-    document.getElementById("cuota6").innerText = (monto / 6).toFixed(2);
-    document.getElementById("cuota9").innerText = (monto / 9).toFixed(2);
-    document.getElementById("cuota12").innerText = (monto / 12).toFixed(2);
-
-    document.getElementById("resultados").classList.remove("d-none");
-  }
-
-  function abrirModal(cuotas, valor) {
-    document.getElementById("cuotaSeleccionada").innerText = cuotas;
-    document.getElementById("valorSeleccionado").innerText = valor;
-
-    const modal = new bootstrap.Modal(document.getElementById('cuotaModal'));
-    modal.show();
-  }
-
-  function continuarTramite() {
-    alert("Perfecto ✅ ¡Continuamos con tu trámite!");
-    // acá podés redirigir a un formulario de registro o contacto
-    // window.location.href = "/assets/html/contacto.html";
-  }
-</script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
 </html>
